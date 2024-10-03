@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="app.js"></script>
 </head>
-<body>
+<body class="host">
     <h1 class="titulo" id="my">Lista de tareas</h1>
-    <button onclick="changeText()">Agregar tarea</button>
-    <ul id="lista">
-        <li>Inicio de lista</li>
+    <div class="input-button">
+        <input type="text" id="input-text" class="input-txt">
+        <button onclick="changeText()">Agregar tarea</button>
+    </div>
+    <ul id="lista" class="ul-list">
     </ul>
 </body>
 </html> 

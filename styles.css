@@ -1,9 +1,44 @@
+.host {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .titulo {
     background-color: red;
+    margin: 0;
+}
+
+.input-txt {
+    width: 70%;
+}
+
+.input-button {
+    display: flex;
+    justify-content: center;
+    height: 3rem;
 }
 
 .list-element {
     display: flex;
+    justify-content: center;
+    min-height: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.p-element {
+    height: 100%;
+    margin: 0;
+    width: 80%;
+}
+
+.button-element {
+}
+
+.ul-list {
+    margin: 0;
+    padding: 0;
 }
 
 .active {
