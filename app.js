@@ -14,17 +14,21 @@ function changeText() {
         listElement.setAttribute("id", actualId);
         // Asignar la clase list-element
         listElement.setAttribute("class", "list-element");
+        // Creación de un elemento div
+        const divElement = document.createElement("div");
+        divElement.setAttribute("class", "div-element active");
+        divElement.setAttribute("id", actualId + "-div");
+        divElement.setAttribute("onclick", "changeClass('" + actualId + "-div')");
         // Creación de elemento p
         const pElement = document.createElement("p");
         // Asignación de atributos onclick, id y class al elemento p
-        pElement.setAttribute("onclick", "changeClass('" + actualId + "-p')");
-        pElement.setAttribute("id", actualId + "-p");
-        pElement.setAttribute("class", "p-element active");
+        pElement.setAttribute("class", "p-element");
         // Asignación de texto de la nueva tarea en p
         const nodo = document.createTextNode(textValue);
         pElement.appendChild(nodo);
-        // Agregar pElement al elemento de la lista
-        listElement.appendChild(pElement);
+        // Agregar divElement al elemento de la lista
+        divElement.appendChild(pElement);
+        listElement.appendChild(divElement);
         // Crear elemento de botón
         const buttonElement = document.createElement("button");
         // Agregar atributos id, class y onclick del elemento botón
@@ -32,12 +36,14 @@ function changeText() {
         buttonElement.setAttribute("onclick", "deleteListElement('" + actualId + "')");
         // Crear elemento svg
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("width", "15px");
-        svg.setAttribute("height", "15px");
+        svg.setAttribute("width", "2rem");
+        svg.setAttribute("height", "2rem");
         svg.setAttribute("viewBox", "0 -960 960 960");
-        svg.setAttribute("fill", "#000000");
+        svg.setAttribute("fill", "#ffffff");
+        // Crear el elemento con path
         const link = document.createElementNS("http://www.w3.org/2000/svg", "path");
         link.setAttributeNS(null, "d", "M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z")
+        // Agregar path al svg y el svg al botón
         svg.appendChild(link);
         buttonElement.appendChild(svg);
         // Agregar buttonElement a listElement
@@ -51,11 +57,13 @@ function changeText() {
 }
 
 function deleteListElement(elementToRemove) {
+    // Buscar elemento y eliminarlo
     const element = document.getElementById(elementToRemove);
     element.remove();
 }
 
 function changeClass(idOfElement) {
+    // Buscar elemento para cambiar su estado de activo a inactivo
     const listElement = document.getElementById(idOfElement);
     let classes = listElement.getAttribute("class").split(" ");
     if (classes[1] === "active"){

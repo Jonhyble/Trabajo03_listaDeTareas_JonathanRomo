@@ -9,8 +9,19 @@
     <h1 class="titulo" id="my">Lista de tareas</h1>
     <div class="input-button">
         <input type="text" id="input-text" class="input-txt">
-        <button onclick="changeText()">Agregar tarea</button>
+        <button onclick="changeText()" class="button-txt"><p>Agregar</p></button>
     </div>
+    <div class="color-division">
+        <div class="color-set">
+            <div>Tarea hecha</div>
+            <div class="color-done"></div>
+        </div>
+        <div class="color-set">
+            <div>Tarea no hecha</div>
+            <div class="color-not-done"></div>
+        </div>
+    </div>
+    <div class="instrucciones">Da clic en una tarea para marcar como completada.</div>
     <ul id="lista" class="ul-list">
     </ul>
 </body>
